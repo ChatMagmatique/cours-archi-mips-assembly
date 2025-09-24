@@ -1,5 +1,7 @@
 # Cours d'assembleur sur l'architecture mips
 ## Les registres
+| numéro de registre | opcode | Description |
+|--------------------|--------|-------------|
 |   0   | $zero   | Toujours égale à zéro                                               |
 |   1   | $at     | Variable temporel pour l'assembleur (à ne pas l'utiliser)           |
 |  2-3  | $v0-$V1 | Valeurs de retour d'une fonction appelée                            |
@@ -24,27 +26,21 @@ Rs, Rt = Registres de sources d'opérande
 Ra = Registre de l'adresse de retour ($ra)
 PC = Program counteur ($pc)
 Acc = Accumulateur 64 bits
-
 ### Opérations arithmétiques
-
 | opcode                 | C équivalent |
 |------------------------|--------------|
 | add Rd, Rs, Rt         | Rd = Rs + Rt |
 | addi Rd, Rs, const16   | Rd = Rs + const16 |
 | addu Rd, Rs, Rt        | Rd = Rs + Rt |
 | addiu Rd, Rs, const16  | Rd = Rs + const16 |
-|------------------------|------------------|
 | sub Rd, Rs, Rt         | Rd = Rs - Rt |
 | subu Rd, Rs, Rt        | Rd = Rs - Rt |
-|------------------------|-------------------|
 | la Rd, Label           | Rd = &Label |
 | li Rd, const16         | Rd = const16 |
 | lui Rd, const16        | Rd = const16 |
 | move Rd, Rs            | Rd = Rs |
 | negu Rd, RS            | Rd = -Rs |
-
 ### Opération sur les bits
-
 | opcode                 | C équivalent |
 |------------------------|--------------|
 | not Rd, Rs             | Rd = ~Rs |
@@ -55,13 +51,10 @@ Acc = Accumulateur 64 bits
 | nor Rd, Rs, Rt         | Rd = ~(Rs | Rt) |
 | xor Rd, Rs, Rt         | Rd = Rs Rt |
 | xori Rd, Rs, const16   | Rd = Rs const16 |
-
 ### Opération de comparaision
-
 | opcode                 | C équivalent |
 |------------------------|--------------|
 | movn Rd, Rs, Rt        | if(Rt != 0) Rd = Rs |
 | movz Rd, Rs, Rt        | if(Rt == 0) Rd = Rs |
 | slt Rd, Rs, Rt         | Rd = (Rs < Rt)? 1: 0 |
 | slti Rd, Rs, const16   | Rd = (Rs < const16)? 1: 0 |
-|  
